@@ -7,5 +7,10 @@ final router = GoRouter(
       path: "/",
       builder: (context, state) => const HomePage(),
     ),
+    GoRoute(
+      name: RoutesConstants.loginPage,
+      path: "/login",
+      builder: (context, state) => const LoginPage(),
+    ),
   ],
 );
