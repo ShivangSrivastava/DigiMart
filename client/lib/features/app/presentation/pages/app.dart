@@ -1,6 +1,9 @@
+import 'package:client/config/routes/app_route.dart';
+import 'package:client/config/routes/routes_constants.dart';
 import 'package:client/features/app/presentation/bloc/app_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -9,46 +12,23 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AppBloc()..add(AppCheck()),
-      child: MaterialApp(
-        title: 'DigiMart',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
+      child: BlocListener<AppBloc, AppState>(
+        listener: (context, state) {
+          if (state is AppAuthenticated) {
+            context.goNamed(RoutesConstants.homePage);
+          } else if (state is AppUnauthenticated) {
+            context.goNamed(RoutesConstants.loginPage);
+          }
+        },
+        child: MaterialApp.router(
+          title: 'DigiMart',
+          theme: ThemeData(
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+            useMaterial3: true,
+          ),
+          routerDelegate: router.routerDelegate,
+          routeInformationParser: router.routeInformationParser,
         ),
-        home: BlocBuilder<AppBloc, AppState>(
-          builder: (context, state) {
-            if (state is AppAuthenticated) {
-              return const Home();
-            }
-            return const Login();
-          },
-        ),
-      ),
-    );
-  }
-}
-
-class Home extends StatelessWidget {
-  const Home({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home"),
-      ),
-    );
-  }
-}
-
-class Login extends StatelessWidget {
-  const Login({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Login"),
       ),
     );
   }

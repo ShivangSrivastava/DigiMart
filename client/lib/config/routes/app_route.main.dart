@@ -1,6 +1,6 @@
 part of 'app_route.dart';
 
-final routers = GoRouter(
+final router = GoRouter(
   routes: [
     GoRoute(
       name: RoutesConstants.homePage,
