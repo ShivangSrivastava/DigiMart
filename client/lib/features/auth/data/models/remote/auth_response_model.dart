@@ -3,10 +3,10 @@
 import 'package:client/features/auth/domain/domain_export.dart';
 
 class AuthResponseModel extends AuthResponseEntity {
-  AuthResponseModel({
-    final String? token,
-    final String? message,
-  }) : super(token: token, message: message);
+  const AuthResponseModel({
+    super.token,
+    super.message,
+  });
 
   factory AuthResponseModel.fromResponseEntity(AuthResponseEntity entity) {
     return AuthResponseModel(

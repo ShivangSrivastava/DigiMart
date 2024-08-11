@@ -5,7 +5,7 @@ class AuthResponseEntity extends Equatable {
   final String? token;
   final String? message;
 
-  AuthResponseEntity({this.token, this.message});
+  const AuthResponseEntity({this.token, this.message});
 
   @override
   List<Object> get props => [token!, message!];

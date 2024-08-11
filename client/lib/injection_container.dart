@@ -6,5 +6,5 @@ final locator = GetIt.instance;
 Future<void> startupLocator() async {
   // shared preference
   final SharedPreferences prefs = await SharedPreferences.getInstance();
-  locator.registerLazySingleton<SharedPreferences>(() => prefs);
+  locator.registerSingleton(prefs);
 }

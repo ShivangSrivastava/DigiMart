@@ -1,12 +1,12 @@
 import 'package:client/features/auth/domain/domain_export.dart';
 
 class AuthModel extends AuthEntity {
-  AuthModel({
-    final String? email,
-    final String? name,
-    final String? password,
-    final UserRole? role,
-  }) : super(email: email, name: name, password: password, role: role);
+  const AuthModel({
+    super.email,
+    super.name,
+    super.password,
+    super.role,
+  });
 
   factory AuthModel.fromMap(
     Map<String, dynamic> json,
