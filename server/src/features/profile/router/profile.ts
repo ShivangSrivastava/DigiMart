@@ -1,10 +1,10 @@
 import express from "express";
+import authenticateJWT from "../../../core/middleware/jwt";
 import {
   deleteProfileController,
   getProfileController,
   putProfileController,
-} from "../../controller/auth/profileController";
-import authenticateJWT from "../../middleware/jwt";
+} from "../controller/profileController";
 
 const profileRouter = express.Router();
 

@@ -1,12 +1,12 @@
 import express, { Application } from "express";
 import http from "http";
 import connectDB from "./config/db";
-import authRouter from "./router/auth/auth";
-import profileRouter from "./router/auth/profile";
-import userOrderRouter from "./router/user/order";
-import userProductRouter from "./router/user/product";
-import vendorOrderRouter from "./router/vendor/order";
-import vendorProductRouter from "./router/vendor/product";
+import authRouter from "./features/auth/router/auth";
+import userOrderRouter from "./features/order/router/userOrder";
+import vendorOrderRouter from "./features/order/router/vendorOrder";
+import productRouter from "./features/products/router/product";
+import vendorProductRouter from "./features/products/router/vendorProduct";
+import profileRouter from "./features/profile/router/profile";
 
 // env config
 require("dotenv").config();
@@ -25,10 +25,10 @@ app.use(express.urlencoded({ extended: false }));
 // router
 app.use("/api/auth", authRouter);
 app.use("/api/profile", profileRouter);
-app.use("/api/user/order", userOrderRouter);
-app.use("/api/user/product", userProductRouter);
-app.use("/api/vendor/order", vendorOrderRouter);
-app.use("/api/vendor/product", vendorProductRouter);
+app.use("/api/product", productRouter);
+app.use("/api/product/vendor", vendorProductRouter);
+app.use("/api/order/user", userOrderRouter);
+app.use("/api/order/vendor", vendorOrderRouter);
 
 // server
 new http.Server(app).listen(PORT, HOST, () =>

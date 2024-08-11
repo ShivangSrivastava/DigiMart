@@ -1,11 +1,6 @@
 import express from "express";
-import {
-  userCreateOrderController,
-  userDeleteOrderController,
-  userPaymentController,
-  userViewOrderController,
-} from "../../controller/user/orderController";
-import authenticateJWT from "../../middleware/jwt";
+import authenticateJWT from "../../../core/middleware/jwt";
+import { userCreateOrderController, userViewOrderController, userDeleteOrderController, userPaymentController } from "../controller/userOrderController";
 
 const userOrderRouter = express.Router();
 userOrderRouter.use(authenticateJWT);

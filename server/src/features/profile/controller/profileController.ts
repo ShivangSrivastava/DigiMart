@@ -1,5 +1,5 @@
 import express from "express";
-import UserModel from "../../model/auth/userModel";
+import UserModel from "../../../core/common/userModel";
 
 export const getProfileController = (
   req: express.Request,

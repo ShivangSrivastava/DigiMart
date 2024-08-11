@@ -1,12 +1,12 @@
 import express from "express";
+import authenticateJWT from "../../../core/middleware/jwt";
+import authenticateVendor from "../../../core/middleware/vendor";
 import {
   vendorCreateProductController,
   vendorDeleteProductController,
   vendorReadProductController,
   vendorUpdateProductController,
-} from "../../controller/vendor/productController";
-import authenticateJWT from "../../middleware/jwt";
-import authenticateVendor from "../../middleware/vendor";
+} from "../controller/vendorProductController";
 
 const vendorProductRouter = express.Router();
 

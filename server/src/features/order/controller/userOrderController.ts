@@ -1,6 +1,6 @@
 import express from "express";
-import OrderModel from "../../model/order/orderModel";
-import ProductModel from "../../model/product/productModel";
+import ProductModel from "../../products/model/productModel";
+import OrderModel from "../model/orderModel";
 
 export const userCreateOrderController = (
   req: express.Request,

@@ -1,6 +1,6 @@
 import express from "express";
-import UserModel from "../../model/auth/userModel";
-import ProductModel from "../../model/product/productModel";
+import UserModel from "../../../core/common/userModel";
+import ProductModel from "../model/productModel";
 
 export const vendorCreateProductController = async (
   req: express.Request,
