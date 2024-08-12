@@ -14,9 +14,9 @@ class App extends StatelessWidget {
       child: BlocListener<AppBloc, AppState>(
         listener: (_, state) {
           if (state is AppAuthenticated) {
-            router.goNamed(RoutesConstants.homePage);
+            router.goNamed(RoutesConstants.authenticatedHomePage);
           } else {
-            router.goNamed(RoutesConstants.loginPage);
+            router.goNamed(RoutesConstants.guestHomePage);
           }
         },
         child: MaterialApp.router(

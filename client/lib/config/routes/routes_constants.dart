@@ -4,5 +4,6 @@ class RoutesConstants {
   static const String loginPage = "loginPage";
 
   // home
-  static const String homePage = "homePage";
+  static const String authenticatedHomePage = "authenticatedHomePage";
+  static const String guestHomePage = "guestHomePage";
 }

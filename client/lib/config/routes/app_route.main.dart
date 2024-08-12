@@ -3,9 +3,14 @@ part of 'app_route.dart';
 final router = GoRouter(
   routes: [
     GoRoute(
-      name: RoutesConstants.homePage,
-      path: "/home",
-      builder: (context, state) => const HomePage(),
+      name: RoutesConstants.authenticatedHomePage,
+      path: "/authenticatedHome",
+      builder: (context, state) => const AuthenticatedHomePage(),
+    ),
+    GoRoute(
+      name: RoutesConstants.guestHomePage,
+      path: "/guestHome",
+      builder: (context, state) => const GuestHomePage(),
     ),
     GoRoute(
       name: RoutesConstants.loginPage,
@@ -16,16 +21,16 @@ final router = GoRouter(
   redirect: _redirect,
 );
 
-FutureOr<String?> _redirect(context, state) {
-    final bloc = BlocProvider.of<AppBloc>(context);
-    if (bloc.state is AppAuthenticated) {
-      return null;
-    }
-    if (bloc.state is AppUnauthenticated && state.matchedLocation != '/login') {
-      return '/login';
-    }
-    if (bloc.state is AppAuthenticated && state.matchedLocation == '/login') {
-      return '/home';
-    }
+FutureOr<String?> _redirect(context, GoRouterState state) {
+  final bloc = BlocProvider.of<AppBloc>(context);
+  if (bloc.state is AppAuthenticated) {
     return null;
   }
+  if (bloc.state is AppUnauthenticated &&
+      state.name != RoutesConstants.loginPage &&
+      state.name != RoutesConstants.guestHomePage) {
+    return router.namedLocation(RoutesConstants.guestHomePage);
+  }
+
+  return null;
+}

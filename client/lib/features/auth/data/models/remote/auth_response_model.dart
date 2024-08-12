@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
-import 'package:client/features/auth/domain/domain_export.dart';
+import 'package:client/features/auth/domain/entities/auth_response_entity.dart';
 
 class AuthResponseModel extends AuthResponseEntity {
   const AuthResponseModel({

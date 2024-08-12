@@ -1,7 +1,8 @@
 // part 'auth_api_service.g.dart';
 
 import 'package:client/core/constants/app_constants.dart';
-import 'package:client/features/auth/data/data_sources_export.dart';
+import 'package:client/features/auth/data/models/remote/auth_model.dart';
+import 'package:client/features/auth/data/models/remote/auth_response_model.dart';
 import 'package:dio/dio.dart' hide Headers;
 import 'package:retrofit/retrofit.dart';
 
