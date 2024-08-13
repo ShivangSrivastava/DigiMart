@@ -12,23 +12,14 @@ abstract class HomeApiService {
   factory HomeApiService(Dio dio) = _HomeApiService;
 
   @GET("/product/all-categories")
-  @Headers({
-    'Content-Type': 'application/json',
-  })
   Future<HttpResponse<List<String>>> allCategories();
 
   @GET("/product")
-  @Headers({
-    'Content-Type': 'application/json',
-  })
   Future<HttpResponse<List<HomeProductResponseModel>>> productByCategory(
     @Query('category') String category,
   );
 
   @GET("/product/search")
-  @Headers({
-    'Content-Type': 'application/json',
-  })
   Future<HttpResponse<List<HomeProductResponseModel>>> searchProduct(
     @Query('q') String search,
   );

@@ -1,6 +1,7 @@
 part of 'app_route.dart';
 
 final router = GoRouter(
+  initialLocation: "/loading",
   routes: [
     GoRoute(
       name: RoutesConstants.authenticatedHomePage,
@@ -16,6 +17,11 @@ final router = GoRouter(
       name: RoutesConstants.loginPage,
       path: "/login",
       builder: (context, state) => const LoginPage(),
+    ),
+    GoRoute(
+      name: RoutesConstants.loadingPage,
+      path: "/loading",
+      builder: (context, state) => const LoadingPage(),
     ),
   ],
   redirect: _redirect,

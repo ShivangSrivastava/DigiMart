@@ -6,7 +6,9 @@ class HomeProductGetAllCategoriesUsecase
     implements UseCase<DataState<List<String>>, void> {
   final HomeProductRepository _homeProductRepository;
 
-  HomeProductGetAllCategoriesUsecase(this._homeProductRepository);
+  HomeProductGetAllCategoriesUsecase(this._homeProductRepository) {
+    print("New instance");
+  }
 
   @override
   Future<DataState<List<String>>> call({void params}) {

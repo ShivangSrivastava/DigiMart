@@ -1,5 +1,7 @@
-
 class RoutesConstants {
+  // loading
+  static const String loadingPage = "loadingPage";
+
   // auth
   static const String loginPage = "loginPage";
 

@@ -12,6 +12,7 @@ class HomeProductRepositoryImpl implements HomeProductRepository {
 
   @override
   Future<DataState<List<String>>> getAllCategories() async {
+    print("called");
     try {
       final httpResponse = await _apiService.allCategories();
       return await handleResponse(httpResponse);
