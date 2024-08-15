@@ -1,3 +1,4 @@
+import 'package:client/core/common/bloc/navigation_bar_bloc.dart';
 import 'package:client/features/app/presentation/bloc/app_bloc.dart';
 import 'package:client/features/home/data/data_sources/home_api_service.dart';
 import 'package:client/features/home/data/repository/home_product_repository_impl.dart';

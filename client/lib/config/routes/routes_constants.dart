@@ -1,11 +1,14 @@
 class RoutesConstants {
   // loading
-  static const String loadingPage = "loadingPage";
+  static const String loadingPage = "loading";
 
   // auth
-  static const String loginPage = "loginPage";
+  static const String loginPage = "login";
 
   // home
-  static const String authenticatedHomePage = "authenticatedHomePage";
-  static const String guestHomePage = "guestHomePage";
+  static const String authenticatedHomePage = "authenticatedHome";
+  static const String guestHomePage = "guestHome";
+
+  // search
+  static const String searchPage = "search";
 }

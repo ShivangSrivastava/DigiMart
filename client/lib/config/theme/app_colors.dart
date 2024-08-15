@@ -7,4 +7,5 @@ class AppColors {
   static const Color whiteSmoke = Color(0xFFF0F3FF);
   static const Color black = Color(0xFF28282B);
   static const Color grey = Color.fromARGB(255, 206, 205, 205);
+  static const Color red = Color.fromARGB(255, 255, 82, 82);
 }

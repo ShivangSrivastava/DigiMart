@@ -13,7 +13,7 @@ Future<void> startupLocator() async {
   // network
   sl.registerFactory(() => InternetConnection());
   sl.registerFactory(() => Connectivity());
-  
+
   // home
   sl.registerSingleton<HomeApiService>(
     HomeApiService(sl()),
@@ -30,8 +30,10 @@ Future<void> startupLocator() async {
   sl.registerSingleton<HomeProductSearchUsecase>(
     HomeProductSearchUsecase(sl()),
   );
-  
+
   // app
   sl.registerSingleton<AppBloc>(AppBloc(sl(), sl()));
 
+  // nav bar controller
+  sl.registerLazySingleton<NavigationBarBloc>(() => NavigationBarBloc());
 }

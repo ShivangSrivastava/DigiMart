@@ -1,7 +1,7 @@
 import 'package:client/config/routes/app_route.dart';
 import 'package:client/config/routes/routes_constants.dart';
-import 'package:client/config/theme/app_colors.dart';
 import 'package:client/config/theme/app_theme.dart';
+import 'package:client/core/common/bloc/navigation_bar_bloc.dart';
 import 'package:client/features/app/presentation/bloc/app_bloc.dart';
 import 'package:client/injection_container.dart';
 import 'package:flutter/material.dart';
@@ -13,17 +13,20 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SystemUiOverlayStyle.dark.copyWith(
-      statusBarColor: Colors.transparent,
-      systemNavigationBarColor: AppColors.violetBlue,
-      systemNavigationBarIconBrightness: Brightness.light,
-    );
+    SystemChrome.setPreferredOrientations(
+        [DeviceOrientation.portraitDown, DeviceOrientation.portraitUp]);
     return MultiBlocProvider(
       providers: [
         BlocProvider(
           create: (_) => sl<AppBloc>()
             ..add(
               AppCheck(),
+            ),
+        ),
+        BlocProvider(
+          create: (_) => sl<NavigationBarBloc>()
+            ..add(
+              const NavigationBarChangeIndexEvent(0),
             ),
         ),
       ],
@@ -39,7 +42,7 @@ class App extends StatelessWidget {
         },
         child: MaterialApp.router(
           title: 'DigiMart',
-          theme: AppTheme.lightTheme,
+          theme: AppTheme.lightTheme(context),
           routerConfig: router,
         ),
       ),

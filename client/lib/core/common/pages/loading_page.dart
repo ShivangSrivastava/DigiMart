@@ -7,10 +7,11 @@ class LoadingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: Center(
         child: Lottie.asset(
           'assets/json/loader.json',
-          width: 150,
+          width: 250,
         ),
       ),
     );

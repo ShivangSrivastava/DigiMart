@@ -2,11 +2,11 @@
 import 'package:client/config/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
-class CustomIconButton extends StatelessWidget {
+class BorderIconButton extends StatelessWidget {
   final Widget icon;
   final VoidCallback onPressed;
   final String? tooltip;
-  const CustomIconButton({
+  const BorderIconButton({
     super.key,
     required this.icon,
     required this.onPressed,
