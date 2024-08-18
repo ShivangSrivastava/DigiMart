@@ -33,7 +33,7 @@ final router = GoRouter(
     GoRoute(
       name: RoutesConstants.searchPage,
       path: "/${RoutesConstants.searchPage}",
-      builder: (context, state) => SearchPage(),
+      builder: (context, state) => const SearchPage(),
     ),
   ],
   redirect: _redirect,

@@ -30,7 +30,9 @@ Future<void> startupLocator() async {
   sl.registerSingleton<HomeProductSearchUsecase>(
     HomeProductSearchUsecase(sl()),
   );
-
+  sl.registerLazySingleton<HomeProductBloc>(
+    () => HomeProductBloc(sl(), sl()),
+  );
   // app
   sl.registerSingleton<AppBloc>(AppBloc(sl(), sl()));
 

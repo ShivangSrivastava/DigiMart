@@ -6,6 +6,7 @@ import 'package:client/features/home/domain/repository/home_product_repository.d
 import 'package:client/features/home/domain/usecases/home_product_get_all_categories_usecase.dart';
 import 'package:client/features/home/domain/usecases/home_product_get_by_category_usecase.dart';
 import 'package:client/features/home/domain/usecases/home_product_search_usecase.dart';
+import 'package:client/features/home/presentation/bloc/home_product/home_product_bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';

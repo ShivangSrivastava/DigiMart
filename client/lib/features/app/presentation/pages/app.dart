@@ -3,6 +3,7 @@ import 'package:client/config/routes/routes_constants.dart';
 import 'package:client/config/theme/app_theme.dart';
 import 'package:client/core/common/bloc/navigation_bar_bloc.dart';
 import 'package:client/features/app/presentation/bloc/app_bloc.dart';
+import 'package:client/features/home/presentation/bloc/home_product/home_product_bloc.dart';
 import 'package:client/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -29,6 +30,11 @@ class App extends StatelessWidget {
               const NavigationBarChangeIndexEvent(0),
             ),
         ),
+        BlocProvider(
+            create: (_) => sl<HomeProductBloc>()
+              ..add(
+                HomeProductPageInitEvent(),
+              )),
       ],
       child: BlocListener<AppBloc, AppState>(
         listener: (_, state) {
