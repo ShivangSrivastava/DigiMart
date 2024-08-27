@@ -13,7 +13,7 @@ class _AuthApiService implements AuthApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'http://192.168.226.10:8000/api';
+    baseUrl ??= 'http://0.0.0.0:8000/api';
   }
 
   final Dio _dio;

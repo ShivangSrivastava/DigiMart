@@ -26,7 +26,6 @@ export const loginController = async (
         const token = jwt.sign(
           {
             id: user.id,
-            role: user.role,
           },
           secret
         );
@@ -43,8 +42,8 @@ export const registerController = async (
   req: express.Request,
   res: express.Response
 ) => {
-  const { email, password, name, role } = req.body;
-  if (!email || !password || !name || !role) {
+  const { email, password, name} = req.body;
+  if (!email || !password || !name ) {
     res.status(400).json({ message: "Please fill all the fields" });
   }
 
@@ -53,7 +52,6 @@ export const registerController = async (
       email: email,
       password: password,
       name: name,
-      role: role,
     });
     await newUser.save();
     res.status(200).json({ message: "Registration successful" });

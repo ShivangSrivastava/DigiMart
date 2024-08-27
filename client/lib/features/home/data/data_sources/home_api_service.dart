@@ -14,12 +14,12 @@ abstract class HomeApiService {
   @GET("/product/all-categories")
   Future<HttpResponse<List<String>>> allCategories();
 
-  @GET("/product")
+  @GET("/product/getProduct/{category}")
   Future<HttpResponse<List<HomeProductResponseModel>>> productByCategory(
-    @Query('category') String category,
+    @Path('category') String category,
   );
 
-  @GET("/product/search")
+  @GET("/product/search/")
   Future<HttpResponse<List<HomeProductResponseModel>>> searchProduct(
     @Query('q') String search,
   );

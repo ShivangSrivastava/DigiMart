@@ -9,7 +9,7 @@ const productRouter = express.Router();
 
 productRouter.get("/all-categories", getAllCategoryController);
 
-productRouter.get("/:category", productOnCategoryController);
+productRouter.get("/getProduct/:category", productOnCategoryController);
 
 productRouter.get("/search/:q", searchController);
 

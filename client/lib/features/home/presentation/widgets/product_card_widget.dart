@@ -5,9 +5,13 @@ import 'package:client/core/utils/extensions.dart';
 import 'package:flutter/material.dart';
 
 class ProductCardWidget extends StatelessWidget {
+  final String name;
+  final double price;
   final ImageProvider<Object> imageProvider;
   const ProductCardWidget({
     super.key,
+    required this.name,
+    required this.price,
     required this.imageProvider,
   });
 
@@ -39,9 +43,9 @@ class ProductCardWidget extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  "Smartphone X Pro",
+                  name,
                   maxLines: 1,
-                  style: context.textTheme.bodyLarge!.copyWith(
+                  style: context.textTheme.bodyMedium!.copyWith(
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -49,8 +53,8 @@ class ProductCardWidget extends StatelessWidget {
               const SizedBox(
                 width: 10,
               ),
-              const Text(
-                "10.1",
+              Text(
+                "$price",
               ),
             ],
           ),

@@ -7,7 +7,6 @@ import 'package:client/features/home/presentation/bloc/home_product/home_product
 import 'package:client/features/home/presentation/pages/base_home_page.dart';
 import 'package:client/features/home/presentation/widgets/category_product_widget.dart';
 import 'package:client/features/home/presentation/widgets/home_app_bar_widget.dart';
-import 'package:client/features/home/presentation/widgets/home_loading_skeleton.dart';
 import 'package:client/features/home/presentation/widgets/product_card_widget.dart';
 import 'package:client/features/home/presentation/widgets/tab_selector_widget.dart';
 import 'package:client/features/home/presentation/widgets/titled_text_widget.dart';

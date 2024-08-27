@@ -13,7 +13,7 @@ class _HomeApiService implements HomeApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'http://192.168.226.10:8000/api';
+    baseUrl ??= 'http://0.0.0.0:8000/api';
   }
 
   final Dio _dio;
@@ -52,7 +52,7 @@ class _HomeApiService implements HomeApiService {
   Future<HttpResponse<List<HomeProductResponseModel>>> productByCategory(
       String category) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'category': category};
+    final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _result = await _dio.fetch<List<dynamic>>(
@@ -63,7 +63,7 @@ class _HomeApiService implements HomeApiService {
     )
             .compose(
               _dio.options,
-              '/product',
+              '/product/getProduct/${category}',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -95,7 +95,7 @@ class _HomeApiService implements HomeApiService {
     )
             .compose(
               _dio.options,
-              '/product/search',
+              '/product/search/',
               queryParameters: queryParameters,
               data: _data,
             )

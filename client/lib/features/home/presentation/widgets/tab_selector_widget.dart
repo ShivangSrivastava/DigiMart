@@ -22,6 +22,7 @@ class TabSelectorWidget extends StatelessWidget {
       child: ListView.builder(
         itemCount: titles.length,
         scrollDirection: Axis.horizontal,
+        controller: ScrollController(keepScrollOffset: true),
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
             onTap: () {

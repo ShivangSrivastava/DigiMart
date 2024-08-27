@@ -7,9 +7,8 @@ sealed class HomeProductEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class HomeProductPageInitEvent extends HomeProductEvent {}
+class HomeProductPageUpdateEvent extends HomeProductEvent {
+  final int index;
 
-class HomeProductChangeCategoryEvent extends HomeProductEvent {
-  final int currentIndex;
-  const HomeProductChangeCategoryEvent(this.currentIndex);
+  const HomeProductPageUpdateEvent({this.index = 0});
 }

@@ -33,7 +33,7 @@ class App extends StatelessWidget {
         BlocProvider(
             create: (_) => sl<HomeProductBloc>()
               ..add(
-                HomeProductPageInitEvent(),
+                const HomeProductPageUpdateEvent(),
               )),
       ],
       child: BlocListener<AppBloc, AppState>(

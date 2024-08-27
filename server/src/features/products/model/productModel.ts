@@ -1,10 +1,6 @@
 import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
-  venderId: {
-    type: String,
-    required: true,
-  },
   name: {
     type: String,
     required: true,
@@ -33,17 +29,9 @@ const productSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  updatedAt: {
-    type: Date,
-  },
 });
 
 productSchema.index({ name: "text", desc: "text", category: "text" });
-// Middleware
-productSchema.pre("save", function (next) {
-  this.updatedAt = new Date(Date.now());
-  next();
-});
 
 const ProductModel = mongoose.model("Products", productSchema);
 ProductModel.syncIndexes();

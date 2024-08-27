@@ -8,7 +8,7 @@ class HomeProductResponseEntity extends Equatable {
   final String? category;
   final double? price;
   final int? stock;
-  final List<String>? images;
+  final List? images;
   final String? updatedAt;
 
   const HomeProductResponseEntity(
