@@ -7,4 +7,4 @@ sealed class AppEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class AppCheck extends AppEvent{}
+class AppCheck extends AppEvent {}

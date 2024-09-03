@@ -1,10 +1,5 @@
-import 'package:client/core/resources/data_state.dart';
-import 'package:client/core/resources/handle_response.dart';
-import 'package:client/features/auth/data/data_sources/auth_api_service.dart';
-import 'package:client/features/auth/data/models/remote/auth_model.dart';
-import 'package:client/features/auth/data/models/remote/auth_response_model.dart';
-import 'package:client/features/auth/domain/entities/auth_entity.dart';
-import 'package:client/features/auth/domain/repository/auth_repository.dart';
+import 'package:client/core/core_export.dart';
+import 'package:client/features/auth/auth_export.dart';
 import 'package:dio/dio.dart';
 
 class AuthRepositoryImpl implements AuthRepository {

@@ -1,12 +1,6 @@
-import 'package:client/core/common/bloc/navigation_bar_bloc.dart';
-import 'package:client/features/app/presentation/bloc/app_bloc.dart';
-import 'package:client/features/home/data/data_sources/home_api_service.dart';
-import 'package:client/features/home/data/repository/home_product_repository_impl.dart';
-import 'package:client/features/home/domain/repository/home_product_repository.dart';
-import 'package:client/features/home/domain/usecases/home_product_get_all_categories_usecase.dart';
-import 'package:client/features/home/domain/usecases/home_product_get_by_category_usecase.dart';
-import 'package:client/features/home/domain/usecases/home_product_search_usecase.dart';
-import 'package:client/features/home/presentation/bloc/home_product/home_product_bloc.dart';
+import 'package:client/features/app/app_export.dart';
+import 'package:client/features/guest/guest_export.dart';
+import 'package:client/shared/shared_export.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';

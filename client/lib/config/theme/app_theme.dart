@@ -1,5 +1,5 @@
-import 'package:client/config/theme/app_colors.dart';
-import 'package:client/core/utils/extensions.dart';
+import 'package:client/config/config_export.dart';
+import 'package:client/core/core_export.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';

@@ -1,11 +1,62 @@
 import 'dart:async';
-import 'package:client/config/routes/routes_constants.dart';
-import 'package:client/core/common/pages/loading_page.dart';
-import 'package:client/features/app/presentation/bloc/app_bloc.dart';
-import 'package:client/features/auth/presentation/pages/login_page.dart';
-import 'package:client/features/home/presentation/pages/authenticated/authenticated_home_page.dart';
-import 'package:client/features/home/presentation/pages/guest/guest_home_page.dart';
-import 'package:client/features/search/presentation/pages/search_page.dart';
+
+import 'package:client/config/config_export.dart';
+import 'package:client/features/app/app_export.dart';
+import 'package:client/features/auth/auth_export.dart';
+import 'package:client/features/guest/guest_export.dart';
+import 'package:client/shared/shared_export.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-part 'app_route.main.dart';
+
+final router = GoRouter(
+  initialLocation: "/loading",
+  routes: [
+    // loading
+    GoRoute(
+      name: RoutesConstants.loadingPage,
+      path: "/${RoutesConstants.loadingPage}",
+      builder: (context, state) => const LoadingPage(),
+    ),
+
+    // auth
+    GoRoute(
+      name: RoutesConstants.loginPage,
+      path: "/${RoutesConstants.loadingPage}",
+      builder: (context, state) => const LoginPage(),
+    ),
+
+    // home
+    GoRoute(
+      name: RoutesConstants.authenticatedHomePage,
+      path: "/${RoutesConstants.authenticatedHomePage}",
+      builder: (context, state) => const AuthenticatedHomePage(),
+    ),
+    GoRoute(
+      name: RoutesConstants.guestHomePage,
+      path: "/${RoutesConstants.guestHomePage}",
+      builder: (context, state) => const GuestHomePage(),
+    ),
+
+    // search
+    GoRoute(
+      name: RoutesConstants.searchPage,
+      path: "/${RoutesConstants.searchPage}",
+      builder: (context, state) => const SearchPage(),
+    ),
+  ],
+  redirect: _redirect,
+);
+
+FutureOr<String?> _redirect(context, GoRouterState state) {
+  final bloc = BlocProvider.of<AppBloc>(context);
+  if (bloc.state is AppAuthenticated) {
+    return null;
+  }
+  if (bloc.state is AppUnauthenticated &&
+      state.name != RoutesConstants.loginPage &&
+      state.name != RoutesConstants.guestHomePage) {
+    return router.namedLocation(RoutesConstants.guestHomePage);
+  }
+
+  return null;
+}

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'dart:ui';
 
 class AppColors {
   static const Color deepNavyBlue = Color(0xFF211951);

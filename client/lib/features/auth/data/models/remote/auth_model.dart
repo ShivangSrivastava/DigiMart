@@ -1,4 +1,4 @@
-import 'package:client/features/auth/domain/entities/auth_entity.dart';
+import 'package:client/features/auth/auth_export.dart';
 
 class AuthModel extends AuthEntity {
   const AuthModel({
