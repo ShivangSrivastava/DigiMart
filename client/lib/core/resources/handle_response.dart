@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:client/core/core_export.dart';
+import 'package:client/client.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 

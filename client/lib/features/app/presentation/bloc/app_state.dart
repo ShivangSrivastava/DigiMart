@@ -9,21 +9,10 @@ sealed class AppState extends Equatable {
 
 final class AppInitial extends AppState {}
 
-// app authenticased state
-class AppAuthenticated extends AppState {
-  final String token;
-  final List<String> categories;
+class VerificationSuccess extends AppState {}
 
-  const AppAuthenticated({required this.token, required this.categories});
-}
-
-// app unauthenticated state
-class AppUnauthenticated extends AppState {
-  final List<String> categories;
-
-  const AppUnauthenticated({required this.categories});
-}
+class VerificationFailure extends AppState {}
 
 class AppLoading extends AppState {}
 
-class AppNoInternet extends AppState {}
+class NetworkError extends AppState {}

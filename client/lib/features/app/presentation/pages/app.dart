@@ -1,11 +1,9 @@
-import 'package:client/config/config_export.dart';
-import 'package:client/features/app/app_export.dart';
-import 'package:client/features/guest/guest_export.dart';
-import 'package:client/injection_container.dart';
-import 'package:client/shared/shared_export.dart';
+import 'package:client/client.dart';
+import 'package:client/features/app/presentation/bloc/app_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -17,32 +15,25 @@ class App extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => sl<AppBloc>()
-            ..add(
-              AppCheck(),
-            ),
+          create: (context) => sl<AppBloc>()..add(NetworkStatusChecked()),
         ),
-        BlocProvider(
-          create: (_) => sl<NavigationBarBloc>()
-            ..add(
-              const NavigationBarChangeIndexEvent(0),
-            ),
-        ),
-        BlocProvider(
-            create: (_) => sl<HomeProductBloc>()
-              ..add(
-                const HomeProductPageUpdateEvent(),
-              )),
       ],
       child: BlocListener<AppBloc, AppState>(
         listener: (_, state) {
-          if (state is AppLoading) {
-            router.goNamed(RoutesConstants.loadingPage);
-          } else if (state is AppAuthenticated) {
-            router.goNamed(RoutesConstants.authenticatedHomePage);
-          } else {
-            router.goNamed(RoutesConstants.guestHomePage);
-          }
+        switch (state){
+
+          case AppInitial():
+
+          case VerificationSuccess():
+            GoRouter.of(context).go()
+          case VerificationFailure():
+            // TODO: Handle this case.
+          case AppLoading():
+            // TODO: Handle this case.
+          case NetworkError():
+            // TODO: Handle this case.
+        }
+
         },
         child: MaterialApp.router(
           title: 'DigiMart',

@@ -1,14 +1,7 @@
-class RoutesConstants {
-  // loading
-  static const String loadingPage = "loading";
+class SharedRoutes {
+  static const String loadingPage = "/shared_loading";
+}
 
-  // auth
-  static const String loginPage = "login";
-
-  // home
-  static const String authenticatedHomePage = "authenticatedHome";
-  static const String guestHomePage = "guestHome";
-
-  // search
-  static const String searchPage = "search";
+class Verified {
+  static const String home = "/verified_home";
 }

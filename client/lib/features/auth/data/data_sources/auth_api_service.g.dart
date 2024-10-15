@@ -13,7 +13,7 @@ class _AuthApiService implements AuthApiService {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'http://0.0.0.0:8000/api';
+    baseUrl ??= 'http://0.0.0.0:8000/api/auth';
   }
 
   final Dio _dio;
@@ -21,7 +21,8 @@ class _AuthApiService implements AuthApiService {
   String? baseUrl;
 
   @override
-  Future<HttpResponse<AuthResponseModel>> register(AuthModel body) async {
+  Future<HttpResponse<AuthResponseModel>> register(
+      AuthRequestModel body) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Content-Type': 'application/json'};
@@ -36,7 +37,7 @@ class _AuthApiService implements AuthApiService {
     )
             .compose(
               _dio.options,
-              '/auth/register',
+              '/register',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -51,7 +52,7 @@ class _AuthApiService implements AuthApiService {
   }
 
   @override
-  Future<HttpResponse<AuthResponseModel>> login(AuthModel body) async {
+  Future<HttpResponse<AuthResponseModel>> login(AuthRequestModel body) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Content-Type': 'application/json'};
@@ -66,7 +67,7 @@ class _AuthApiService implements AuthApiService {
     )
             .compose(
               _dio.options,
-              '/auth/login',
+              '/login',
               queryParameters: queryParameters,
               data: _data,
             )
